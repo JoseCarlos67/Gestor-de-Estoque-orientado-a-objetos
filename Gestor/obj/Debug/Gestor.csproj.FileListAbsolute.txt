@@ -1,0 +1,8 @@
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\bin\Debug\Gestor.exe.config
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\bin\Debug\Gestor.exe
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\bin\Debug\Gestor.pdb
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\obj\Debug\Gestor.csproj.AssemblyReference.cache
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\obj\Debug\Gestor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\obj\Debug\Gestor.csproj.CoreCompileInputs.cache
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\obj\Debug\Gestor.exe
+C:\Users\Windows.lite\Desktop\Gestor de estoque - CMD\Gestor\Gestor\obj\Debug\Gestor.pdb
