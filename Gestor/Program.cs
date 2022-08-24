@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Gestor
@@ -12,6 +15,8 @@ namespace Gestor
 
         static void Main(string[] args)
         {
+            //Carrega o meu arquivo com a lista de produtos 
+            Carrgar();    
 
             bool escolheuSair = false;
 
@@ -25,9 +30,11 @@ namespace Gestor
 
                 if (opt >= 0 && opt < 6)
                 {
+                    Console.Clear();
                     switch (escolha)
                     {
                         case Menu.Listar:
+                            Listagem();
                             break;
                         case Menu.Adicionar:
                             Cadastro();
@@ -53,6 +60,17 @@ namespace Gestor
 
             Console.WriteLine("Sistema de Estoque");
             Console.WriteLine("\n1 - Listar\n2 - Adicionar\n3 - Remover\n4 - Entrada\n5 - Saída\n0 - Fechar");
+        }
+
+        static void Listagem()
+        {
+            Console.WriteLine("Lista de produtos:");
+            foreach(IEstoque produto in produtos)
+            {
+                produto.Exibir();
+            }
+            Console.Write("Aperte qualquer tecla para sair.");
+            Console.ReadKey();
         }
 
         static void Cadastro()
@@ -96,6 +114,7 @@ namespace Gestor
             float frete = float.Parse(Console.ReadLine());
             ProdutoFisico pf = new ProdutoFisico(nome, preco, frete);
             produtos.Add(pf);
+            Salvar();
         }
 
         static void CadastrarEbook()
@@ -110,6 +129,7 @@ namespace Gestor
 
             EBook eb = new EBook(nome, autor, preco);
             produtos.Add(eb);
+            Salvar();
         }
 
         static void CadastrarCurso()
@@ -126,6 +146,42 @@ namespace Gestor
 
             Curso cs = new Curso(autor, nVagas, nome, preco);
             produtos.Add(cs);
+            Salvar();
+        }
+
+        //Salva os produtos adicionado ou modificados.
+        static void Salvar()
+        {
+            FileStream stream = new FileStream("produtos.dat", FileMode.OpenOrCreate);
+            BinaryFormatter encoder = new BinaryFormatter();
+            encoder.Serialize(stream, produtos);
+            stream.Close();
+        }
+
+        static void Carrgar()
+        {
+            FileStream stream = new FileStream("produtos.dat", FileMode.OpenOrCreate);
+            BinaryFormatter decoder = new BinaryFormatter();
+
+            try
+            {
+
+                produtos = (List<IEstoque>)decoder.Deserialize(stream);
+
+                if(produtos == null)
+                {
+                    produtos = new List<IEstoque>();
+                }
+
+            } 
+            catch(Exception e)
+            {
+
+                produtos = new List<IEstoque>();
+
+            }
+
+            stream.Close();
         }
 
     }

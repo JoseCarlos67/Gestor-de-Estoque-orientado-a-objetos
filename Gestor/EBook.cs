@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor
 {
+    [System.Serializable]
     class EBook : Produto, IEstoque
     {
 
@@ -32,7 +33,8 @@ namespace Gestor
             Console.WriteLine($"Nome: {nome}");
             Console.WriteLine($"Autor: {autor}");
             Console.WriteLine($"Preço: {preco}");
-            Console.WriteLine($"Quantidade de cópias vendidas: {num_vendas}/n");
+            Console.WriteLine($"Quantidade de cópias vendidas: {num_vendas}");
+            Console.WriteLine("====================================");
         }
     }
 }

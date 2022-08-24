@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor
 {
+    [System.Serializable]
     class Curso : Produto, IEstoque
     {
         public string autor;
@@ -32,7 +33,8 @@ namespace Gestor
             Console.WriteLine($"Nome: {nome}");
             Console.WriteLine($"Autor: {autor}");
             Console.WriteLine($"Preço: {preco}");
-            Console.WriteLine($"Número de vagas restantes: {vagas}/n");
+            Console.WriteLine($"Número de vagas restantes: {vagas}");
+            Console.WriteLine("====================================");
         }
     }
 }

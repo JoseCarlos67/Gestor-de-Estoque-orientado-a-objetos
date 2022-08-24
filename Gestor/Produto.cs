@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor
 {
+    [System.Serializable]
     abstract internal class Produto
     {
 
