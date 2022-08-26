@@ -22,6 +22,12 @@ namespace Gestor
 
         public void Adcionar_Saida()
         {
+            Console.WriteLine($"Adicionar vendas no Ebook {nome}");
+            Console.WriteLine("Digite a quantidade vendas: ");
+            int entrada = int.Parse(Console.ReadLine());
+            num_vendas += entrada;
+            Console.WriteLine("Venda(s) registrada!");
+            Console.ReadKey();
         }
 
         public void Adicionar_Entrada()

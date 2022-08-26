@@ -23,6 +23,11 @@ namespace Gestor
 
         public void Adcionar_Saida()
         {
+            Console.WriteLine($"Adicionar saida no estoque do produto {nome}");
+            Console.WriteLine("Digite a quantidade que você quer dar baixa: ");
+            int entrada = int.Parse(Console.ReadLine());
+            estoque -= entrada;
+            Console.WriteLine("Saida(s) registrada!");
         }
 
         public void Adicionar_Entrada()
@@ -31,7 +36,8 @@ namespace Gestor
             Console.WriteLine("Digite a quantidade que você quer dar entrada: ");
             int entrada = int.Parse(Console.ReadLine());
             estoque += entrada;
-            Console.WriteLine("Entrada registrada!");
+            Console.WriteLine("Entrada(s) registrada!");
+            Console.ReadKey();
         }
 
         public void Exibir()

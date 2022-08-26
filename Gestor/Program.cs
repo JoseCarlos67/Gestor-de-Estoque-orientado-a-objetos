@@ -46,6 +46,7 @@ namespace Gestor
                             Entrada();
                             break;
                         case Menu.Saida:
+                            Saida();
                             break;
                         case Menu.Fechar:
                             escolheuSair = true;
@@ -92,6 +93,8 @@ namespace Gestor
             else
             {
                 Console.WriteLine("ID inválido! Pressione para repetir a operação.");
+                Console.ReadKey();
+                Console.Clear();
                 Remover();
             }
         }
@@ -106,6 +109,32 @@ namespace Gestor
             {
                 produtos[id].Adicionar_Entrada();
                 Salvar();
+            }
+            else
+            {
+                Console.WriteLine("ID inválido! Pressione para repetir a operação.");
+                Console.ReadKey();
+                Console.Clear();
+                Entrada();
+            }
+        }
+        static void Saida()
+        {
+            Listagem();
+            Console.WriteLine("\nDigite o ID do produto para dar baixa: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (id >= 0 && id < produtos.Count)
+            {
+                produtos[id].Adcionar_Saida();
+                Salvar();
+            }
+            else
+            {
+                Console.WriteLine("ID inválido! Pressione para repetir a operação.");
+                Console.ReadKey();
+                Console.Clear();
+                Saida();
             }
         }
 

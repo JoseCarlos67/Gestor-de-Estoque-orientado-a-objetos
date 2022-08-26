@@ -22,6 +22,12 @@ namespace Gestor
 
         public void Adcionar_Saida()
         {
+            Console.WriteLine($"Consumir vagas no curso de {nome}");
+            Console.WriteLine("Digite a quantidade vagas preenchidas: ");
+            int entrada = int.Parse(Console.ReadLine());
+            vagas -= entrada;
+            Console.WriteLine("Saida(s) registrada!");
+            Console.ReadKey();
         }
 
         public void Adicionar_Entrada()
@@ -30,7 +36,8 @@ namespace Gestor
             Console.WriteLine("Digite a quantidade vagas: ");
             int entrada = int.Parse(Console.ReadLine());
             vagas += entrada;
-            Console.WriteLine("Entrada registrada!");
+            Console.WriteLine("Entrada(s) registrada!");
+            Console.ReadKey();
         }
 
         public void Exibir()
