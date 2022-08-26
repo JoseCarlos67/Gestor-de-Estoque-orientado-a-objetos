@@ -26,6 +26,11 @@ namespace Gestor
 
         public void Adicionar_Entrada()
         {
+            Console.WriteLine($"Adicionar vagas no curso de {nome}");
+            Console.WriteLine("Digite a quantidade vagas: ");
+            int entrada = int.Parse(Console.ReadLine());
+            vagas += entrada;
+            Console.WriteLine("Entrada registrada!");
         }
 
         public void Exibir()

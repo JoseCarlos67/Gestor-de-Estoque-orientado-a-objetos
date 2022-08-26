@@ -40,8 +40,10 @@ namespace Gestor
                             Cadastro();
                             break;
                         case Menu.Remover:
+                            Remover();
                             break;
                         case Menu.Entrada:
+                            Entrada();
                             break;
                         case Menu.Saida:
                             break;
@@ -64,13 +66,47 @@ namespace Gestor
 
         static void Listagem()
         {
+            int id = 0;
             Console.WriteLine("Lista de produtos:");
             foreach(IEstoque produto in produtos)
             {
+                Console.WriteLine("Id:  " + id);
                 produto.Exibir();
+                id++;
             }
-            Console.Write("Aperte qualquer tecla para sair.");
+            Console.Write("Aperte qualquer tecla para Continuar.");
             Console.ReadKey();
+        }
+
+        static void Remover()
+        {
+            Listagem();
+            Console.WriteLine("Digite o ID do produto a ser removido: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (id >=0 && id < produtos.Count)
+            {
+                produtos.RemoveAt(id);
+                Salvar();
+            }
+            else
+            {
+                Console.WriteLine("ID inválido! Pressione para repetir a operação.");
+                Remover();
+            }
+        }
+
+        static void Entrada()
+        {
+            Listagem();
+            Console.WriteLine("\nDigite o ID do produto para dar entrada: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (id >= 0 && id < produtos.Count)
+            {
+                produtos[id].Adicionar_Entrada();
+                Salvar();
+            }
         }
 
         static void Cadastro()
@@ -112,7 +148,9 @@ namespace Gestor
             float preco = float.Parse(Console.ReadLine());
             Console.WriteLine("Frete: ");
             float frete = float.Parse(Console.ReadLine());
-            ProdutoFisico pf = new ProdutoFisico(nome, preco, frete);
+            Console.WriteLine("Quantidade em estoque:");
+            int qtd = int.Parse(Console.ReadLine());
+            ProdutoFisico pf = new ProdutoFisico(nome, preco, frete, qtd);
             produtos.Add(pf);
             Salvar();
         }

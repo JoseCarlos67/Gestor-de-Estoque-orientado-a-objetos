@@ -13,11 +13,12 @@ namespace Gestor
         public float frete;
         private int estoque;
 
-        public ProdutoFisico(string nome, float preco, float frete)
+        public ProdutoFisico(string nome, float preco, float frete, int estoque)
         {
             this.nome = nome;
             this.preco = preco;
-            this.frete = frete;        
+            this.frete = frete;
+            this.estoque = estoque;
         }
 
         public void Adcionar_Saida()
@@ -26,6 +27,11 @@ namespace Gestor
 
         public void Adicionar_Entrada()
         {
+            Console.WriteLine($"Adicionar entrada no estoque do produto {nome}");
+            Console.WriteLine("Digite a quantidade que você quer dar entrada: ");
+            int entrada = int.Parse(Console.ReadLine());
+            estoque += entrada;
+            Console.WriteLine("Entrada registrada!");
         }
 
         public void Exibir()

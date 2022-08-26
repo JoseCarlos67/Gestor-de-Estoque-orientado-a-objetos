@@ -26,6 +26,8 @@ namespace Gestor
 
         public void Adicionar_Entrada()
         {
+            Console.WriteLine("Não é possível dar entrada em um produto digital! Aperte qualquer tecla para sair.");
+            Console.ReadKey();
         }
 
         public void Exibir()
